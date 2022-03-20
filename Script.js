@@ -17,9 +17,13 @@ class Timer {
   }
 
   tick = () => {
-    // On left, we are calling the setter function and equating the value as a parameter.
-    // On right, we are calling the getter function and manipulating its value.
-    this.remainingTime = this.remainingTime - 1;
+    if (this.remainingTime <= 0){
+      this.pause();
+    }else {
+      // On left, we are calling the setter function and equating the value as a parameter.
+      // On right, we are calling the getter function and manipulating its value.
+      this.remainingTime = this.remainingTime - 1;
+    }
   }
 
   get remainingTime(){
