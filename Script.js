@@ -8,8 +8,8 @@ class Timer {
   }
 
   start = () => {
-    this.tick()
-    this.intervalId = setInterval(this.tick, 1000)
+    this.tick();
+    this.intervalId = setInterval(this.tick, 1000);
   };
 
   pause = () => {
@@ -17,7 +17,8 @@ class Timer {
   }
 
   tick = () => {
-    console.log('tick')
+    const timeRemaining = parseFloat(this.durationInput.value);
+    this.durationInput.value = timeRemaining - 1;
   }
 }
 
