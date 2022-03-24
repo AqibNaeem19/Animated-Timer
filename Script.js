@@ -6,7 +6,6 @@ const circle = document.querySelector('circle');
  const circumference = 2 * Math.PI * circle.getAttribute('r');
  circle.setAttribute('stroke-dasharray', circumference);
 
- let currentOffset = 0
  let duration;
 
 const timer = new Timer(durationInput, startButton, pauseButton, {
@@ -17,10 +16,10 @@ const timer = new Timer(durationInput, startButton, pauseButton, {
     circle.setAttribute('stroke-dashoffset', 
       circumference * timeRemaining / duration - circumference
     );
-    
   },
   onComplete(){
-    console.log('Timer Completed')
+    durationInput.value = "10"
+    circle.setAttribute('stroke-dashoffset', 0);
   }
 })
 
