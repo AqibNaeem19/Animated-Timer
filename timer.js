@@ -15,10 +15,10 @@ class Timer {
 
   start = () => {
     if (this.onStart){
-      this.onStart();
+      this.onStart(this.remainingTime);
     }
     this.tick();
-    this.intervalId = setInterval(this.tick, 1000);
+    this.intervalId = setInterval(this.tick, 50);
   };
 
   pause = () => {
@@ -34,9 +34,9 @@ class Timer {
     }else {
       // On left, we are calling the setter function and equating the value as a parameter.
       // On right, we are calling the getter function and manipulating its value.
-      this.remainingTime = this.remainingTime - 1;
+      this.remainingTime = this.remainingTime - 0.05;
       if(this.onTick){
-        this.onTick();
+        this.onTick(this.remainingTime);
       }
     }
   }
@@ -46,6 +46,6 @@ class Timer {
   }
 
   set remainingTime(time){
-    this.durationInput.value = time
+    this.durationInput.value = time.toFixed(2)
   }
 }
